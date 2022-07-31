@@ -47,7 +47,6 @@ namespace LoginHW.Service
                 {
                     AccessToken = accessToken,
                     ExpireTime = now.AddMinutes(_jwtConfig.AccessTokenExpiration),
-                    Role = tempAccount.Role
                 };
 
                 return new BaseResponse<TokenResponse>(token);
@@ -84,7 +83,6 @@ namespace LoginHW.Service
             {
                 new Claim(ClaimTypes.NameIdentifier, account.Id.ToString()),
                 new Claim(ClaimTypes.Name, account.UserName),
-                new Claim(ClaimTypes.Role, account.Role),
                 new Claim("AccountId", account.Id.ToString()),
             };
 

@@ -22,10 +22,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\LoginHW.Base\LoginHW.Base.csproj" />
     <ProjectReference Include="..\LoginHW.Data\LoginHW.Data.csproj" />
     <ProjectReference Include="..\LoginHW.Service\LoginHW.Service.csproj" />
