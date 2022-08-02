@@ -18,6 +18,11 @@ namespace LoginHW.Data
         {
             base.OnModelCreating(builder);
             builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+            builder.Entity<Person>(builder =>
+            {
+                builder.HasNoKey();
+                builder.ToTable("person");
+            });
         }
 
 

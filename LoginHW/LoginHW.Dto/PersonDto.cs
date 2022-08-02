@@ -8,8 +8,8 @@ namespace LoginHW.Dto
 
         [Required]
         [MaxLength(25)]
-        [Display(Name = "StaffId")]
-        public string StaffId { get; set; }
+        [Display(Name = "AccountId")]
+        public string accountid { get; set; }
 
         [Required]
         [MaxLength(500)]

@@ -18,7 +18,7 @@ namespace LoginHW.Data
 
             var records = await queryable.AsNoTracking()
                 .AsSplitQuery()
-                .OrderByDescending(x => x.Id)
+                .OrderByDescending(x => x.accountid)
                 .Skip((pagination.Page - 1) * pagination.PageSize)
                 .Take(pagination.PageSize)
                 .ToListAsync();
@@ -31,8 +31,8 @@ namespace LoginHW.Data
 
             if (filterResource != null)
             {
-                if (!string.IsNullOrEmpty(filterResource.StaffId))
-                    queryable = queryable.Where(x => x.accountid.Contains(filterResource.StaffId.RemoveSpaceCharacter()));
+                if (!string.IsNullOrEmpty(filterResource.accountid))
+                    queryable = queryable.Where(x => x.accountid.Equals(filterResource.accountid.RemoveSpaceCharacter()));
 
                 if (!string.IsNullOrEmpty(filterResource.FirstName))
                 {
@@ -52,7 +52,7 @@ namespace LoginHW.Data
 
         public override async Task<Person> GetByIdAsync(int id)
         {
-            return await Context.Person.AsSplitQuery().SingleOrDefaultAsync(x => x.Id == id);
+            return await Context.Person.AsSplitQuery().SingleOrDefaultAsync(x => x.accountid == id);
         }
 
         public async Task<int> TotalRecordAsync()

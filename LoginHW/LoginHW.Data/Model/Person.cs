@@ -2,9 +2,10 @@
 
 namespace LoginHW.Data
 {
+    
     public class Person : BaseModel
-    {
-        public string accountid { get; set; }
+    {        
+        public int accountid { get; set; }
         public string firstname { get; set; }
         public string lastname { get; set; }
         public string email { get; set; }

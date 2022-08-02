@@ -28,5 +28,6 @@ namespace LoginHW.Dto
 
         [Display(Name = "Last Activity")]
         public DateTime LastActivity { get; set; }
+        
     }
 }

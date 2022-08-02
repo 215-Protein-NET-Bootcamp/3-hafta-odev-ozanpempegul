@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using LoginHW;
 using LoginHW.Base;
 using LoginHW.Data;
 using LoginHW.Dto;
@@ -7,7 +6,7 @@ using LoginHW.Service;
 using Microsoft.AspNetCore.Mvc;
 using Serilog;
 
-namespace ProteinApi
+namespace LoginHW
 {
     [Route("protein/v1/api/[controller]")]
     [ApiController]
@@ -59,7 +58,7 @@ namespace ProteinApi
 
         [HttpGet("{id:int}")]
         public new async Task<IActionResult> GetByIdAsync(int id)
-        {
+        {            
             Log.Information($"{User.Identity?.Name}: get a person with Id is {id}.");
 
             return await base.GetByIdAsync(id);
