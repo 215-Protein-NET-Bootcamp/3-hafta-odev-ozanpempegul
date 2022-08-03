@@ -5,9 +5,10 @@ namespace LoginHW.Dto
 {
     public class AccountDto : BaseDto
     {
+        [Required]        
+        public int Id { get; set; }
 
-        [Required]
-        [MaxLength(125)]
+        
         [UserNameAttribute]
         [Display(Name = "User Name")]
         public string UserName { get; set; }
