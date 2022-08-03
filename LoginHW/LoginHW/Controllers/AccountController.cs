@@ -22,9 +22,14 @@ namespace LoginHW
             this._accountService = accountService;
         }
 
-
-        [HttpPost]
         [Authorize]
+        public override Task<IActionResult> GetAllAsync()
+        {
+            return base.GetAllAsync();
+        }
+
+
+        [HttpPost]        
         public new async Task<IActionResult> CreateAsync([FromBody] AccountDto resource)
         {
             var result = await _accountService.InsertAsync(resource);
@@ -41,25 +46,6 @@ namespace LoginHW
         {
             var userId = (User.Identity as ClaimsIdentity).FindFirst("AccountId").Value;
             return await base.GetByIdAsync(int.Parse(userId));
-        }
-
-        [HttpPut("self-update/{id:int}")]
-        [Authorize]
-        public async Task<IActionResult> SelfUpdateAsync(int id, [FromBody] AccountDto resource)
-        {
-            Log.Information($"{User.Identity?.Name}: self-update account with Id is {id}.");
-
-            var identifier = (User.Identity as ClaimsIdentity).FindFirst(ClaimTypes.NameIdentifier).Value;
-
-            if (!identifier.Equals(id.ToString()))
-                return BadRequest(new BaseResponse<AccountDto>("Account_Not_Permitted"));
-
-            var result = await _accountService.SelfUpdateAsync(id, resource);
-
-            if (!result.Success)
-                return BadRequest(result);
-
-            return Ok(result);
         }
 
         [HttpPut("change-password/{id:int}")]

@@ -37,8 +37,9 @@ namespace LoginHW.Data
 
         public void RemoveAsync(Entity entity)
         {
-            //entities.Remove(entity);
-            entity.GetType().GetProperty("IsDeleted").SetValue(entity, true);
+            //Context.Remove(entity);
+            entities.Remove(entity);
+            //entity.GetType().GetProperty("IsDeleted").SetValue(entity, true);
         }
 
         public void Update(Entity entity)
