@@ -50,7 +50,7 @@ namespace LoginHW.Service
 
                 person.firstname = request.FirstName;
                 person.lastname = request.LastName;
-                person.dateofbirth = request.DateOfBirth;
+                person.dateofbirth = request.dateofbirth;
                 person.description = request.Description;
 
                 personRepository.Update(person);

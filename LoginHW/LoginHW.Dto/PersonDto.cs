@@ -1,5 +1,6 @@
 ﻿using LoginHW.Base;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LoginHW.Dto
 {
@@ -36,7 +37,7 @@ namespace LoginHW.Dto
         [DateOfBirth]
         [DataType(DataType.Date)]
         [Display(Name = "DateOfBirth")]
-        public DateTime DateOfBirth { get; set; }
+        public DateTime dateofbirth { get; set; }
 
 
         public string FullName

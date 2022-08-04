@@ -20,7 +20,7 @@ namespace LoginHW.Data
             builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
             builder.Entity<Person>(builder =>
             {
-                builder.HasNoKey();
+                //builder.HasNoKey();
                 builder.ToTable("person");
             });
         }

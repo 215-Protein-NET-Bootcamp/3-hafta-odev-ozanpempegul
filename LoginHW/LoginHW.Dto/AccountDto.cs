@@ -5,7 +5,7 @@ namespace LoginHW.Dto
 {
     public class AccountDto : BaseDto
     {
-        [Required]        
+        [Required]
         public int Id { get; set; }
 
         
