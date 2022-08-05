@@ -5,7 +5,6 @@ using LoginHW.Dto;
 using LoginHW.Service;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Serilog;
 using System.Security.Claims;
 
 namespace LoginHW
